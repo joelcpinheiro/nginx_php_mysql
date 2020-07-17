@@ -4,8 +4,10 @@
   #remote_user: "{{ username }}"
   tasks:
     - name: Install Nginx latest version
-      yum: name=nginx sate=latest
-      notify:
+      yum: 
+        name: nginx 
+        state: latest
+      notify: "Install nginx"
         - start nginx
     - name: Nginx - Enabling on boot
       service:
