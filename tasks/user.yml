@@ -1,0 +1,10 @@
+---
+# Creating user to home directory
+- name: Creating user with home directory
+  hosts: 192.168.33.107
+  vars:
+    - username: usernginx
+  tasks:
+    - name: Create user at this moment
+      user: name={{ username }} shell=/bin/bash createhome=yes state=present
+      tags: user_server
