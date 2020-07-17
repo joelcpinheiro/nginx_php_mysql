@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Install basic pacackes, nginx, PHP and MySQL on lastest version.
 
 Requirements
 ------------
