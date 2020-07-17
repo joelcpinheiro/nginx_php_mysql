@@ -1,4 +1,4 @@
-CentOS 7 install packages
+CentOS 7 WebServer Simple Install
 =========
 
 Install basic pacackes, nginx, PHP and MySQL on lastest version.
