@@ -1,7 +1,7 @@
 CentOS 7 WebServer Simple Install
 =========
 
-Install basic pacackes, nginx, PHP and MySQL on lastest version.
+Install basic packages, nginx, PHP and MySQL on lastest version.
 
 Requirements
 ------------
