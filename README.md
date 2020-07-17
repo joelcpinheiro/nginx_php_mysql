@@ -1,4 +1,4 @@
-Role Name
+CentOS 7 install packages
 =========
 
 Install basic pacackes, nginx, PHP and MySQL on lastest version.
