@@ -13,6 +13,7 @@
     - name: Install a list of PHP modules
       yum:
          name:
+             - php
              - php-mysqli
              - php-xml
              - php-gd
@@ -23,6 +24,15 @@
              - php-pdo_sqlite
              - php-posix
              - php-mbstring
+             - php-ioncube-loader
+             - php-opcache
+             - php-fpm
+             - php-pecl-zip
+             - php-json
+             - php-bcmath
+             - php-imap
+             - php-pspell
+             
          state: present
          enablerepo: remi-php72
          
