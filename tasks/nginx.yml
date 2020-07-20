@@ -1,17 +1,13 @@
 ---
 - name: Task nginx installation
-  hosts: 192.168.33.107
-  #remote_user: "{{ username }}"
+  hosts: 192.168.51.26
   tasks:
     - name: Install Nginx latest version
       yum: 
          name: nginx 
          state: latest
-      notify: "Install nginx"
-      #  - start nginx
     - name: Nginx - Enabling on boot
       service:
          name: nginx
          enabled: yes
-      notify: "Enable nginx"  
 

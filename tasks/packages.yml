@@ -1,13 +1,16 @@
 ---
 - name: Install basic packages before install nginx.
-  hosts: 192.168.33.107
+  hosts: 192.168.51.26
   tasks:
-    - name: 
-      yum: name={{ item }} update_cache=yes state=present
-      with_items:
-        - epel-release
-        - vim
-        - git
-        - wget
-        - curl
-  tags: packages
+    - name: Install a list of packages
+      yum:
+         name:
+           - epel-release
+           - vim
+           - wget
+           - curl
+         state: present
+    - name: upgrade all packages
+      yum:
+         name: '*'
+         state: latest

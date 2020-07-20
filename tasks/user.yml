@@ -1,7 +1,7 @@
 ---
 # Creating user to home directory
 - name: Creating user with home directory
-  hosts: 192.168.33.107
+  hosts: 192.168.51.26
   vars:
     - username: usernginx
   tasks:
