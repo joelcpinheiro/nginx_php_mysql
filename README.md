@@ -1,7 +1,7 @@
-CentOS 7 WebServer Simple Install
+CentOS 7 All in One Installation
 =========
 
-Install basic packages, nginx, PHP and MySQL on lastest version.
+Install basic packages, Nginx, PHP with modules  and MySQL.
 
 Requirements
 ------------
@@ -25,14 +25,14 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
 
 License
 -------
 
-BSD
+Use where you think you will contribute :)
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+* **Joel Pinheiro** - *Github* - [joelcpinheiro](https://github.com/joelcpinheiro)
+

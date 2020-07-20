@@ -5,14 +5,13 @@
   tasks:
     - name: Install Nginx latest version
       yum: 
-        name: nginx 
-        state: latest
+         name: nginx 
+         state: latest
       notify: "Install nginx"
-        - start nginx
+      #  - start nginx
     - name: Nginx - Enabling on boot
       service:
          name: nginx
          enabled: yes
       notify: "Enable nginx"  
 
-  #tags: installnginx
