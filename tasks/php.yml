@@ -35,4 +35,13 @@
              
          state: present
          enablerepo: remi-php72
-         
+    - name: Start php-fpm service
+      service:
+       name: php-fpm
+       state: started 
+    - name: Enable php-fpm on Boot
+      systemd:
+       name: php-fpm
+       enabled: yes
+       masked: no     
+     

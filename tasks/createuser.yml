@@ -1,0 +1,17 @@
+---
+ - name: Efetuando a criacao do usuario para acesso FTP
+   # alterar o campo hosts e inserir o IP ou nome do Servidor
+   hosts: HOSTNAMEOUIP
+   # alterar as variaveis usuario e senha
+   vars:
+       usuario: nomedousuario
+       senha: senhadousuario
+       funcao: Usuario VSFTPD
+   tasks:
+     - shell: useradd -c "{{funcao}}" {{usuario}}
+     - shell: echo "{{senha}}" | passwd "{{usuario}}" --stdin
+     - shell: echo "{{usuario}}" >> /etc/vsftpd/chroot_list
+     - name: Efetuando restart no serviço vsftpd
+       systemd:
+         name: vsftpd
+         state: restarted

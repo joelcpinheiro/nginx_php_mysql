@@ -7,12 +7,17 @@
          name: nginx 
          state: latest
     - name: Start Nginx service
-    service:
-     name: nginx
-     state: started
-  - name: Enable Nginx on Boot
-    systemd:
-     name: nginx
-     enabled: yes
-     masked: no
-
+      service:
+       name: nginx
+       state: started
+    - name: Enable Nginx on Boot
+      systemd:
+       name: nginx
+       enabled: yes
+       masked: no
+    - firewalld:
+        service: http
+        permanent: true
+        state: enabled
+    - name:
+      command: firewall-cmd --reload

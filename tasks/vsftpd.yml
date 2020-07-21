@@ -1,0 +1,33 @@
+---
+# Inserir no campo hosts o IP ou nome da nova VM
+- hosts: 192.168.51.26
+  tasks: 
+  - firewalld:
+      service: ftp
+      permanent: true
+      state: enabled
+  - name:
+    command: firewall-cmd --reload
+  - name: Install VSFTPD
+    yum:
+      name: vsftpd
+      state: present
+  - name: Rename the original configuration file
+    command: mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.original
+  - name: Sending file configuration costumized of VSFTP
+    copy:
+     src: /vsftpd.conf
+     dest: /etc/vsftpd/
+  - name: Update list of users that could access via FTP
+    copy:
+     src: /etc/ansible/vsftpdce7/chroot_list
+     dest: /etc/vsftpd/
+  - name: Starting VSFTPD 
+    service:
+     name: vsftpd
+     state: started
+  - name: Enable VSFTPD na inicializacao
+    systemd:
+     name: vsftpd
+     enabled: yes
+     masked: no
