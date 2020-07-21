@@ -1,7 +1,5 @@
 ---
-- name: Install basic packages before install nginx.
-  hosts: 192.168.51.26
-  tasks:
+#- name: Install basic packages before install nginx.
     - name: Install a list of packages
       yum:
          name:

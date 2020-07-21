@@ -1,7 +1,7 @@
 ---
  - name: Efetuando a criacao do usuario para acesso FTP
    # alterar o campo hosts e inserir o IP ou nome do Servidor
-   hosts: HOSTNAMEOUIP
+   hosts: 192.168.51.26
    # alterar as variaveis usuario e senha
    vars:
        usuario: nomedousuario

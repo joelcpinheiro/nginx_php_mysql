@@ -1,7 +1,7 @@
 ---
-- name: Task PHP and modules installation
-  hosts: 192.168.51.26
-  tasks:
+#- name: Task PHP and modules installation
+#  hosts: 192.168.51.26
+#  tasks:
     - name: Install Remi Release repository
       yum: 
          name: http://rpms.famillecollet.com/enterprise/remi-release-7.rpm

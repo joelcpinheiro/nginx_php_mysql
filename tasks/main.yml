@@ -1,6 +1,0 @@
----
-# tasks file for nginx_php_mysql
-- import_playbook: user.yml
-- import_playbook: packages.yml
-- import_playbook: nginx.yml
-- import_playbook: php.yml

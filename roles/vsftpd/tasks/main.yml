@@ -1,7 +1,5 @@
 ---
 # Inserir no campo hosts o IP ou nome da nova VM
-- hosts: 192.168.51.26
-  tasks: 
   - firewalld:
       service: ftp
       permanent: true
@@ -16,11 +14,11 @@
     command: mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.original
   - name: Sending file configuration costumized of VSFTP
     copy:
-     src: /vsftpd.conf
+     src: vsftpd.conf
      dest: /etc/vsftpd/
   - name: Update list of users that could access via FTP
     copy:
-     src: /etc/ansible/vsftpdce7/chroot_list
+     src: chroot_list
      dest: /etc/vsftpd/
   - name: Starting VSFTPD 
     service:
