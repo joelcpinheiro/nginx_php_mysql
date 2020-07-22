@@ -1,7 +1,7 @@
 CentOS 7 All in One Installation
 =========
 
-Install basic packages, Nginx, PHP with modules  and MySQL.
+Install basic packages and update OS, install Nginx, PHP 7.2 with modules and MySQL 5.6.48.
 
 Requirements
 ------------
