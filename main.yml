@@ -7,7 +7,7 @@
 
 ---
 - name: Apply common configuration on webserver virtual machine
-  hosts: 192.168.51.26
+  hosts: IPVirtualMachine
   gather_facts: no
   ignore_errors: yes
 
