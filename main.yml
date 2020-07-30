@@ -7,7 +7,7 @@
 
 ---
 - name: Apply common configuration on webserver virtual machine
-  hosts: IPVirtualMachine
+  hosts: IPVIRTUALMACHINE
   gather_facts: no
   ignore_errors: yes
 
@@ -16,5 +16,6 @@
     - { role: nginx }
     - { role: php }
     - { role: vsftpd }
+    - { role: mysqld }
 
 

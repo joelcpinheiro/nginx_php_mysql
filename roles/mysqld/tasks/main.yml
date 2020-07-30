@@ -1,28 +1,12 @@
 ---
 - name: Install MysQL Community repository
   yum:
-   # name: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-    name: https://downloads.mysql.com/archives/get/p/23/file/MySQL-server-5.6.48-1.el7.x86_64.rpm
+    name: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
     state: present
-- name: Install MySQL 5.6.48
+- name: Install MySQL Community Server 5.6.49
   yum:
-    name: mysql-server
+    name: mysql-community-server
     state: present
-
-- name: Install python for Ansible/MySQL
-  yum:
-    name: "{{ mysql_pkgs }}"
-    state: present
-  vars:
-    mysql_pkgs:
-    - python2-PyMySQL
-    - MySQL-python
-
-- name: Enable Native Password in my.cnf file
-  lineinfile:
-    path: /etc/my.cnf
-    regexp: '^# default-authentication-plugin='
-    line: default-authentication-plugin=mysql_native_password
 
 - name: Start Service MySQL
   systemd:
@@ -33,22 +17,4 @@
 - name: Get root password
   shell: "grep 'A temporary password is generated for root@localhost' /var/log/mysqld.log | awk -F ' ' '{print $(NF)}'"
   register: root_password
-
-- name: Update Autogenerate root password
-  command: mysql --user root --password={{ root_password.stdout }} --connect-expired-password --execute="ALTER USER 'root'@'localhost' IDENTIFIED BY '{{ mysql_root_password }}';"
-
-- name: Remove test Database
-  mysql_db:    
-    login_user: root
-    login_password: "{{ mysql_root_password }}"
-    name: test
-    state: absent
-
-- name: Remove Anonymous users
-  mysql_user:
-    login_user: root
-    login_password: "{{ mysql_root_password }}"
-    name: ""
-    host_all: yes
-    state: absent
 
