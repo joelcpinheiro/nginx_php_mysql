@@ -12,7 +12,7 @@ Requirements
 4. Execute the playbook `main.yml`;
 And Voalá...
 
-**OBS 1**: The MySQL root password is on the directory vars, `roles/mysqld/vars/`.
+**OBS 1**: The MySQL root password is on the directory vars, `roles/mysqld/vars/`.</br>
 **OBS 2**: The WebServer Username is
 
 
