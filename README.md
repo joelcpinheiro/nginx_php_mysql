@@ -12,11 +12,15 @@ Requirements
 4. Execute the playbook `main.yml`;
 And Voalá...
 
+**OBS 1**: The MySQL root password is on the directory vars, `roles/mysqld/vars/`.
+**OBS 2**: The WebServer Username is
+
+
 Example executing playbook with file main.yml
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-# Uncoment role line to install one or more packages
+Uncoment role line to install one or more packages
 
 
 ```sh

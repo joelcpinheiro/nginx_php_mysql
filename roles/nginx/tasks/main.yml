@@ -1,7 +1,4 @@
 ---
-#- name: Task nginx installation
-#  hosts: 192.168.51.26
-#  tasks:
     - name: Install Nginx latest version
       yum: 
          name: nginx 
