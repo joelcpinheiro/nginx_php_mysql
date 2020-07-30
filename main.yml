@@ -1,12 +1,5 @@
-#---
-# tasks file for nginx_php_mysql
-#- import_playbook: user.yml
-#- import_playbook: packages.yml
-#- import_playbook: nginx.yml
-#- import_playbook: php.yml
-
 ---
-- name: Apply common configuration on webserver virtual machine
+- name: Apply common configuration on webserver instance
   hosts: IPVIRTUALMACHINE
   gather_facts: no
   ignore_errors: yes
@@ -17,5 +10,3 @@
 #    - { role: php }
 #    - { role: vsftpd }
 #    - { role: mysqld }
-
-

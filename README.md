@@ -1,30 +1,39 @@
 CentOS 7 All in One Installation
 =========
 
-Install basic packages and update OS, install Nginx, PHP 7.2 with modules and MySQL 5.6.48.
+Install basic packages and update OS, install Nginx on latest version, PHP 7.2 with modules and MySQL Community Server 5.6.49.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+1. Allow Ansible Server communicate to new instante, executing the command `ssh-copy-id root@IPVIRTUALMACHINE`;
+2. Add the IPVIRTUALMACHINE on `/etc/ansible/hosts` file;
+3. Insert the IPVIRTUALMACHINE on file main.yml and choose wich are roles do you execute; 
+4. Execute the playbook `main.yml`;
+And Voalá...
 
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
+Example executing playbook with file main.yml
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+# Uncoment role line to install one or more packages
 
-    - hosts: servers
-      roles:
+
+```sh
+---
+- name: Apply common configuration on webserver instance
+  hosts: IPVIRTUALMACHINE
+  gather_facts: no
+  ignore_errors: yes
+
+  roles:
+#    - { role: packages }
+#    - { role: nginx }
+#    - { role: php }
+#    - { role: vsftpd }
+#    - { role: mysqld }
+
+```
 
 License
 -------
@@ -35,4 +44,5 @@ Author Information
 ------------------
 
 * **Joel Pinheiro** - *Github* - [joelcpinheiro](https://github.com/joelcpinheiro)
+
 

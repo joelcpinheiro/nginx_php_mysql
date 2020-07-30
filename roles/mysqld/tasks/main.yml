@@ -19,7 +19,6 @@
   yum:
     name:
       - MySQL-python
-     # - python2-PyMySQL
 
 - name: Set MySQL root password
   mysql_user:
