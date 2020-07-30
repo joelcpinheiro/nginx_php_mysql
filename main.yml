@@ -12,10 +12,10 @@
   ignore_errors: yes
 
   roles:
-    - { role: packages }
-    - { role: nginx }
-    - { role: php }
-    - { role: vsftpd }
-    - { role: mysqld }
+#    - { role: packages }
+#    - { role: nginx }
+#    - { role: php }
+#    - { role: vsftpd }
+#    - { role: mysqld }
 
 

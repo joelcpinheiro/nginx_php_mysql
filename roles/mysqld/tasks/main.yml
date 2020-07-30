@@ -3,18 +3,29 @@
   yum:
     name: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
     state: present
+#- name: Update cache YUM
+#  yum:
+#    update_cache: True
 - name: Install MySQL Community Server 5.6.49
   yum:
     name: mysql-community-server
     state: present
-
 - name: Start Service MySQL
   systemd:
     name: mysqld
     state: restarted
     enabled: yes
+- name: Install python3-PyMySQL library
+  yum:
+    name:
+      - MySQL-python
+     # - python2-PyMySQL
 
-- name: Get root password
-  shell: "grep 'A temporary password is generated for root@localhost' /var/log/mysqld.log | awk -F ' ' '{print $(NF)}'"
-  register: root_password
-
+- name: Set MySQL root password
+  mysql_user:
+    login_host: 'localhost'
+    login_user: 'root'
+    login_password: ''
+    name: 'root'
+    password: '{{ mysqlroot_passwd }}'
+    state: present
