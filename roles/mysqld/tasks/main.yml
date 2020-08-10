@@ -3,9 +3,6 @@
   yum:
     name: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
     state: present
-#- name: Update cache YUM
-#  yum:
-#    update_cache: True
 - name: Install MySQL Community Server 5.6.49
   yum:
     name: mysql-community-server
@@ -15,7 +12,7 @@
     name: mysqld
     state: restarted
     enabled: yes
-- name: Install python3-PyMySQL library
+- name: Install MySQL-python library
   yum:
     name:
       - MySQL-python

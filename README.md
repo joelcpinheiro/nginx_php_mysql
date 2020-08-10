@@ -35,6 +35,7 @@ Uncoment role line to install one or more packages
 #    - { role: nginx }
 #    - { role: php }
 #    - { role: vsftpd }
+#    - { role: usrdev }
 #    - { role: mysqld }
 
 ```

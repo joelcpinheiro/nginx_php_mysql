@@ -1,15 +1,23 @@
 ---
- - name: Creating FTP user to access environment
-   # update vars users and password
-   vars:
-       usuario: usrdev
-       senha: pass
-       funcao: User VSFTPD
-   tasks:
-     - shell: useradd -c "{{funcao}}" {{usuario}}
-     - shell: echo "{{senha}}" | passwd "{{usuario}}" --stdin
-     - shell: echo "{{usuario}}" >> /etc/vsftpd/chroot_list
-     - name: Running restart of vfstpd service
-       systemd:
-         name: vsftpd
-         state: restarted
+- user:
+   name: "{{usuario}}"
+   comment: "FTP User"
+   password: "{{senha}}"
+- name: Creating FTP user to access environment    
+ #shell: useradd "{{usuario}}"
+  shell: echo "{{senha}}" | passwd "{{usuario}}" --stdin
+  shell: echo "{{usuario}}" >> /etc/vsftpd/chroot_list
+  shell: mkdir /home/{{usuario}}/public_html && chmod 751 /home/{{usuario}} && chmod 755 /home/{{usuario}}/public_html
+  #shell: chown "{{usuario}}"."{{usuario}}" /home/{{usuario}}/public_html
+
+- name:
+  file:
+    path: "/home/{{usuario}}/public_html"
+    owner: "{{usuario}}"
+    group: "{{usuario}}"
+    mode: 0755
+
+- name: Running restart of vfstpd service
+  systemd:
+    name: vsftpd
+    state: restarted

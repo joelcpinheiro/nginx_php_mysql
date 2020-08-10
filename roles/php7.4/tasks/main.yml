@@ -1,0 +1,40 @@
+---
+    - name: Install Remi Release repository
+      yum: 
+         name: http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+         state: present
+    - name: Install a list of PHP modules
+      yum:
+         name:
+             - php
+             - php-mysqli
+             - php-xml
+             - php-gd
+             - php-soap
+             - php-mcrypt
+             - php-xmlrpc
+             - php-pdo
+             - php-pdo_sqlite
+             - php-posix
+             - php-mbstring
+             - php-ioncube-loader
+             - php-opcache
+             - php-fpm
+             - php-pecl-zip
+             - php-json
+             - php-bcmath
+             - php-imap
+             - php-pspell
+             
+         state: present
+         enablerepo: remi-php74
+    - name: Start php-fpm service
+      service:
+       name: php-fpm
+       state: started 
+    - name: Enable php-fpm on Boot
+      systemd:
+       name: php-fpm
+       enabled: yes
+       masked: no     
+     

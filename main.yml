@@ -1,13 +1,15 @@
 ---
 - name: Apply common configuration on webserver instance
-  hosts: 192.168.51.36
+  hosts: IPVIRTUALMACHINE
   gather_facts: no
   ignore_errors: yes
 
   roles:
     - { role: packages }
     - { role: nginx }
-    - { role: php }
+  # - { role: php7.2 }
+  # - { role: php7.3 }
+    - { role: php7.4 }
     - { role: vsftpd }
     - { role: usrdev }
     - { role: mysqld }
