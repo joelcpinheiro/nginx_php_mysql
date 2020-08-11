@@ -17,7 +17,3 @@
     owner: "{{usuario}}"
     group: "{{usuario}}"
     mode: 0755
-- name: Running restart of vfstpd service
-  systemd:
-    name: vsftpd
-    state: restarted

@@ -42,10 +42,8 @@
         path: /etc/php-fpm.d/www.conf
         regexp: '^group ='
         line: group = {{usuario}}
-#    - replace:
-#        dest: /etc/php-fpm.d/www.conf
-#       regexp: user =
-#        replace: user = {{usuario}}  
+    - name: Rename group directory session
+      command: chgrp nginx /var/lib/php/session
     - name: Start php-fpm service
       service:
        name: php-fpm
@@ -55,4 +53,4 @@
        name: php-fpm
        enabled: yes
        masked: no     
-     
+    
