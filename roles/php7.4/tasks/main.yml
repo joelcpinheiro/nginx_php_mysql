@@ -28,6 +28,24 @@
              
          state: present
          enablerepo: remi-php74
+    - name: Rename the original configuration file
+      command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf.original
+    - name: Sending file configuration costumized of PHP-FPM
+      copy:
+        src: www.conf
+        dest: /etc/php-fpm.d/
+    - lineinfile:
+        path: /etc/php-fpm.d/www.conf
+        regexp: '^user ='
+        line: user = {{usuario}}
+    - lineinfile:
+        path: /etc/php-fpm.d/www.conf
+        regexp: '^group ='
+        line: group = {{usuario}}
+#    - replace:
+#        dest: /etc/php-fpm.d/www.conf
+#       regexp: user =
+#        replace: user = {{usuario}}  
     - name: Start php-fpm service
       service:
        name: php-fpm

@@ -18,3 +18,5 @@
         state: enabled
     - name:
       command: firewall-cmd --reload
+    - name:
+      command: chgrp nginx /var/lib/php/session

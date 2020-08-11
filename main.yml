@@ -1,15 +1,15 @@
 ---
 - name: Apply common configuration on webserver instance
-  hosts: IPVIRTUALMACHINE
+  hosts: IPOFVIRTUALINSTANCE
   gather_facts: no
   ignore_errors: yes
 
   roles:
-    - { role: packages }
-    - { role: nginx }
-  # - { role: php7.2 }
-  # - { role: php7.3 }
-    - { role: php7.4 }
-    - { role: vsftpd }
-    - { role: usrdev }
-    - { role: mysqld }
+#    - { role: packages }
+#    - { role: nginx }
+#    - { role: php7.2 }
+#    - { role: php7.3 }
+#    - { role: php7.4 }
+#    - { role: vsftpd }
+#    - { role: usrdev }
+#    - { role: mysqld }

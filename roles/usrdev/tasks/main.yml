@@ -2,21 +2,21 @@
 - user:
    name: "{{usuario}}"
    comment: "FTP User"
-   password: "{{senha}}"
+   password: "{{ senha | password_hash('sha512') }}"
+   update_password: on_create
+- name: Add FTP user to Nginx group
+  user:
+    name: "{{usuario}}"
+    groups: nginx
+    append: yes
 - name: Creating FTP user to access environment    
- #shell: useradd "{{usuario}}"
-  shell: echo "{{senha}}" | passwd "{{usuario}}" --stdin
-  shell: echo "{{usuario}}" >> /etc/vsftpd/chroot_list
   shell: mkdir /home/{{usuario}}/public_html && chmod 751 /home/{{usuario}} && chmod 755 /home/{{usuario}}/public_html
-  #shell: chown "{{usuario}}"."{{usuario}}" /home/{{usuario}}/public_html
-
 - name:
   file:
     path: "/home/{{usuario}}/public_html"
     owner: "{{usuario}}"
     group: "{{usuario}}"
     mode: 0755
-
 - name: Running restart of vfstpd service
   systemd:
     name: vsftpd
