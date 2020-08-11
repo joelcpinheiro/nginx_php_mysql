@@ -1,7 +1,7 @@
 CentOS 7 All in One Installation
 =========
 
-Install basic packages and update OS, install Nginx on latest version, PHP 7.2 with modules and MySQL Community Server 5.6.49.
+Install basic packages and update OS, install Nginx on latest version, PHP 7.2/PHP 7.3/PHP 7.4 with specific modules and MySQL Community Server 5.6.49.
 
 Requirements
 ------------
@@ -13,14 +13,14 @@ Requirements
 And Voalá...
 
 **OBS 1**: The MySQL root password is on the directory vars, `roles/mysqld/vars/`.</br>
-**OBS 2**: The WebServer Username is
+**OBS 2**: The WebServer Username is defined on `roles/usrdev/vars/main.yml`.</br>
 
 
 Example executing playbook with file main.yml
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-Uncoment role line to install one or more packages
+Uncoment role line to install one or more packages, choose one version of PHP.
 
 
 ```sh
@@ -33,7 +33,9 @@ Uncoment role line to install one or more packages
   roles:
 #    - { role: packages }
 #    - { role: nginx }
-#    - { role: php }
+#    - { role: php7.2 }
+#    - { role: php7.3 }
+#    - { role: php7.4 }
 #    - { role: vsftpd }
 #    - { role: usrdev }
 #    - { role: mysqld }
