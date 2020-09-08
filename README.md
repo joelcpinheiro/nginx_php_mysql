@@ -1,7 +1,7 @@
 CentOS 7 All in One WebServer Install
 =========
 
-Install basic packages and update OS, install Nginx on latest version, PHP 7.2/PHP 7.3/PHP 7.4 with specific modules and MySQL Community Server 5.6.49.
+Install basic packages and update OS, create a FTP user, install Nginx on latest version, PHP 7.2/PHP 7.3/PHP 7.4 with specific modules and MySQL Community Server 5.6.49.
 
 Requirements
 ------------
@@ -14,7 +14,7 @@ And Voalá...
 
 **OBS 1**: The MySQL root password is on the directory vars, `roles/mysqld/vars/`.</br>
 **OBS 2**: The WebServer Username is defined on `roles/usrdev/vars/main.yml`.</br>
-
+**OBS 3**: You need to create a new nginx .conf file to add a URL of your application.</br>
 
 Example executing playbook with file main.yml
 ----------------
