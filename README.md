@@ -1,4 +1,4 @@
-CentOS 7 All in One Installation
+CentOS 7 All in One WebServer Install
 =========
 
 Install basic packages and update OS, install Nginx on latest version, PHP 7.2/PHP 7.3/PHP 7.4 with specific modules and MySQL Community Server 5.6.49.
